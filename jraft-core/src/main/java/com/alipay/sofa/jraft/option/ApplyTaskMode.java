@@ -14,28 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.jraft.example.counter.rpc;
-
-import java.io.Serializable;
+package com.alipay.sofa.jraft.option;
 
 /**
- * Increment value with delta and get the new value request.
+ * Apply task in blocking or non-blocking mode.
+ * @author boyan(boyan@antfin.com)
  *
- * @author boyan (boyan@alibaba-inc.com)
- *
- * 2018-Apr-09 4:53:22 PM
  */
-public class IncrementAndGetRequest implements Serializable {
-
-    private static final long serialVersionUID = -5623664785560971849L;
-
-    private long              delta;
-
-    public long getDelta() {
-        return this.delta;
-    }
-
-    public void setDelta(long delta) {
-        this.delta = delta;
-    }
+public enum ApplyTaskMode {
+    Blocking, NonBlocking
 }

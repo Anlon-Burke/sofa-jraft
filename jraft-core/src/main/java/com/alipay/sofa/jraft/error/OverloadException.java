@@ -14,28 +14,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.alipay.sofa.jraft.example.counter.rpc;
-
-import java.io.Serializable;
+package com.alipay.sofa.jraft.error;
 
 /**
- * Get the latest value request.
+ * Threw when Node is overloaded.
+ * @author boyan(boyan@antfin.com)
  *
- * @author boyan (boyan@alibaba-inc.com)
- *
- * 2018-Apr-09 4:54:17 PM
  */
-public class GetValueRequest implements Serializable {
+public class OverloadException extends JRaftException {
 
-    private static final long serialVersionUID = 9218253805003988802L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = -5505054326197103575L;
 
-    private boolean           readOnlySafe     = true;
-
-    public boolean isReadOnlySafe() {
-        return readOnlySafe;
+    public OverloadException() {
+        super();
     }
 
-    public void setReadOnlySafe(boolean readOnlySafe) {
-        this.readOnlySafe = readOnlySafe;
+    public OverloadException(final String message, final Throwable cause, final boolean enableSuppression,
+                             final boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
+
+    public OverloadException(final String message, final Throwable cause) {
+        super(message, cause);
+    }
+
+    public OverloadException(final String message) {
+        super(message);
+    }
+
+    public OverloadException(final Throwable cause) {
+        super(cause);
+    }
+
 }
