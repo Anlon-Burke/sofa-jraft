@@ -3227,7 +3227,7 @@ public class NodeTest {
                     leader.changePeers(conf, done);
                     done.await();
                     assertTrue(done.getStatus().toString(),
-                        done.getStatus().isOk() || expectedErrors.contains(done.getStatus().getRaftError()));
+                            done.getStatus().isOk() || expectedErrors.contains(done.getStatus().getRaftError()));
                 }
             } catch (final InterruptedException e) {
                 LOG.error("ChangePeersThread is interrupted", e);
