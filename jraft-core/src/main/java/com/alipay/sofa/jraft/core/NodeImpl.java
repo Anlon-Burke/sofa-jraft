@@ -563,7 +563,6 @@ public class NodeImpl implements Node, RaftServerService {
         }
         this.snapshotExecutor = new SnapshotExecutorImpl();
         final SnapshotExecutorOptions opts = new SnapshotExecutorOptions();
-        opts.setUri(this.options.getSnapshotUri());
         opts.setFsmCaller(this.fsmCaller);
         opts.setNode(this);
         opts.setLogManager(this.logManager);
@@ -1018,6 +1017,7 @@ public class NodeImpl implements Node, RaftServerService {
         final BallotBoxOptions ballotBoxOpts = new BallotBoxOptions();
         ballotBoxOpts.setWaiter(this.fsmCaller);
         ballotBoxOpts.setClosureQueue(this.closureQueue);
+        ballotBoxOpts.setNodeId(getNodeId());
         if (!this.ballotBox.init(ballotBoxOpts)) {
             LOG.error("Node {} init ballotBox failed.", getNodeId());
             return false;
